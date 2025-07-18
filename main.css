@@ -1,0 +1,645 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+/* 基本設定 */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    color: #333;
+    background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+    overflow-x: hidden; /* 横スクロールバーを非表示 */
+}
+
+/* ヘッダー - ヒーローセクション */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* ビューポートの高さ全体に広がる */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+#header-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    background-size: cover; /* フォールバック画像用 */
+}
+
+.fallback-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 50, 120, 0.7), rgba(0, 100, 200, 0.5)); /* より鮮やかなグラデーションオーバーレイ */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.5em; /* さらに大きく */
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    line-height: 1.1;
+    overflow: hidden; /* 文字アニメーションのために必要 */
+}
+
+/* ヘッダーテキストアニメーション */
+.animate-text-reveal span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textReveal 0.8s forwards ease-out;
+}
+
+@keyframes textReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+/* プライマリーボタン */
+.btn-primary {
+    display: inline-block;
+    background-color: #ffaa00;
+    color: white;
+    padding: 18px 35px; /* ボタンを大きく */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.3em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* 強い影 */
+    border: 2px solid white; /* 白い枠線 */
+}
+
+.btn-primary:hover {
+    background-color: #e69500;
+    transform: translateY(-5px) scale(1.02); /* ホバーで少し浮き上がる＆拡大 */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+main {
+    padding: 30px 20px;
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+section {
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden; /* アニメーションがはみ出さないように */
+}
+
+section h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #00469b;
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #ffaa00;
+    border-radius: 2px;
+}
+
+section p {
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+/* イントロダクションのグリッドレイアウト */
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.intro-item {
+    background-color: #f7faff;
+    border: 1px solid #e0efff;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.intro-item:hover {
+    transform: translateY(-5px);
+}
+
+.intro-item h3 {
+    color: #0056b3;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* 画像のスタイル */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 40px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.responsive-img:hover {
+    transform: scale(1.02);
+}
+
+.shadow-effect {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* 講義ハイライトのカード */
+.lecture-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: #007bff;
+}
+
+.card h3 {
+    color: #007bff;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* リストのスタイル */
+ul, ol {
+    list-style-position: inside;
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+ul li {
+    list-style-type: '🌟 ';
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+ol li {
+    list-style-type: decimal;
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+ul li strong, ol li strong {
+    color: #0056b3;
+}
+
+/* 卒業後の進路グリッド */
+.future-path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.path-item {
+    background-color: #f7faff;
+    border: 1px solid #e0efff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.path-item:hover {
+    transform: translateY(-5px);
+}
+
+.path-item h3 {
+    color: #0056b3;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.path-item p {
+    font-size: 1.1em;
+}
+
+.path-item ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+/* アコーディオン (FAQ) */
+.accordion {
+    max-width: 800px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    background-color: #007bff;
+    color: white;
+    padding: 18px 25px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header::after {
+    content: '▼';
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+    transform: rotate(180deg);
+}
+
+.accordion-header:hover {
+    background-color: #0056b3;
+}
+
+.accordion-content {
+    background-color: #f9f9f9;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0 25px;
+    box-sizing: border-box;
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    margin: 0;
+    font-size: 1em;
+    color: #444;
+}
+
+/* 連絡先セクション */
+.contact-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 0.9em;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+}
+
+/* ==================================== */
+/* アニメーション用CSS */
+/* ==================================== */
+
+/* 基本のアニメーション非表示状態 */
+[class*="animate-"] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* アニメーション表示状態 */
+[class*="animate-"].is-animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 遅延アニメーション */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-800 { transition-delay: 0.8s; }
+.delay-1000 { transition-delay: 1.0s; }
+.delay-1200 { transition-delay: 1.2s; }
+
+
+/* 個別アニメーションスタイル */
+
+/* Heroセクション - テキストフェードインアップ */
+.animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.animate-fade-in-up.is-animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Heroセクション - ボタンポップイン */
+.animate-pop-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-pop-in.is-animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* スライドイン (左右) */
+.animate-slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-slide-in-left.is-animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-slide-in-right.is-animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Zoomイン */
+.animate-zoom-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-zoom-in.is-animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* カードフリップイン */
+@keyframes flipIn {
+    from {
+        transform: rotateY(90deg) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg) scale(1);
+        opacity: 1;
+    }
+}
+.animate-flip-in {
+    animation: none; /* 初期状態ではアニメーションを適用しない */
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+.animate-flip-in.is-animated {
+    animation: flipIn 0.8s ease-out forwards;
+}
+
+
+/* 画像表示アニメーション */
+.animate-image-reveal {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0); /* 左から右へクリップ */
+    transition: opacity 1s ease-out, clip-path 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.animate-image-reveal.is-animated {
+    opacity: 1;
+    clip-path: inset(0 0% 0 0);
+}
+
+/* リストアイテムのアニメーション */
+.animate-list-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.animate-list-item.is-animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* FAQアコーディオンアイテムのスケールイン */
+.animate-scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.animate-scale-in.is-animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* ==================================== */
+/* レスポンシブデザイン */
+/* ==================================== */
+@media (max-width: 900px) {
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+    .hero-content p {
+        font-size: 1.3em;
+    }
+    section h2 {
+        font-size: 2.2em;
+    }
+    main {
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 15px;
+        height: 80vh; /* 小さめの画面では高さを調整 */
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
+    .btn-primary {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    section h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .intro-grid, .lecture-cards, .future-path-grid {
+        grid-template-columns: 1fr; /* 1列表示 */
+    }
+    .card, .intro-item, .path-item {
+        padding: 20px;
+    }
+    .accordion-header {
+        font-size: 1.1em;
+        padding: 15px 20px;
+    }
+    .accordion-content p {
+        padding: 10px 0;
+    }
+    .contact-links .btn-secondary {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 60px 10px;
+        height: 70vh;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 0.95em;
+    }
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    main {
+        padding: 15px 10px;
+        margin: 15px auto;
+    }
+    section h2 {
+        font-size: 1.5em;
+    }
+    section p {
+        font-size: 1em;
+    }
+    .card h3, .intro-item h3, .path-item h3 {
+        font-size: 1.3em;
+    }
+    .accordion-header {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+    .accordion-content p {
+        font-size: 0.9em;
+    }
+}
